@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 n, m = map(int, input().split())
 li=list(map(int, input().split()))
 li.sort()
@@ -5,11 +7,8 @@ answer=[]
 visited=[False]*n
 check=[]
 def dfs():
-
     if len(answer)==m:
-        if answer not in check:
-            check.append(answer[:])
-            print(' '.join(map(str, answer)))
+        check.append(tuple(answer))
         return
 
 
@@ -21,4 +20,8 @@ def dfs():
             visited[i]=False
             answer.pop()
 dfs()
+check = list(set(check))
+check.sort()
 
+for i in check:
+    print(*i)
