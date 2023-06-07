@@ -4,7 +4,7 @@ more = list(map(int, input().split()))
 broken.sort()
 more.sort()
 answer=[]
-while broken or more:
+while broken and more:
     b = broken.pop()
     m = more.pop()
     if b-2<m<b+2:
